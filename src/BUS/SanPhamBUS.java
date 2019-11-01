@@ -44,6 +44,16 @@ public class SanPhamBUS {
         dssp=data.timTheoTen(ten);
         return dssp;
     }
+    public ArrayList<SanPham> timTheoXuatxu(String xxu){
+        SanPhamDAO data= new SanPhamDAO();
+        dssp=data.timTheoXuatxu(xxu);
+        return dssp;
+    }
+    public ArrayList<SanPham> timTheoNhasx(String nsx){
+        SanPhamDAO data= new SanPhamDAO();
+        dssp=data.timTheoNhasx(nsx);
+        return dssp;
+    }
     public ArrayList<SanPham> timTheogia(String giatu, String giaden){
         SanPhamDAO data= new SanPhamDAO();
         dssp=data.timTheogia(giatu,giaden);

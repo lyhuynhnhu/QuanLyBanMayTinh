@@ -1,8 +1,6 @@
 package DAO;
 
-import BUS.HoaDonBUS;
 import DTO.HoaDon;
-import java.util.List;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -11,25 +9,8 @@ import java.util.logging.Logger;
 public class HoaDonDAO extends MyConnect{
     public ArrayList docDSHD(){
         ArrayList dshd= new ArrayList<HoaDon>();
-        try{
-            getConnect();
-            String qry="select * from HoaDon";
-            st=conn.createStatement();
-            rs= st.executeQuery(qry);
-            while(rs.next()){
-                HoaDon hd= new HoaDon();
-                hd.mahd=rs.getString(1);
-                hd.makh=rs.getString(2);
-                hd.manv=rs.getString(3);
-                hd.ngaylap=rs.getString(4);
-                hd.makm=rs.getString(5);
-                hd.tongtien=rs.getString(6);
-                dshd.add(hd);
-            }
-            closeConnect();
-        } catch (SQLException ex) {
-            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String qry="select * from HoaDon";
+        getData(qry, dshd);
         return dshd;
     }
     public void them(HoaDon hd){
@@ -60,28 +41,39 @@ public class HoaDonDAO extends MyConnect{
         } catch (Exception e) {
         }
     }
-    
-    public void sua(HoaDon hd){
-        try {
-            getConnect();
-            String qry="Update HoaDon set";
-            qry+= " MaKH='"+hd.makh+"'";
-            qry+= ",MaNV='"+hd.manv+"'";
-            qry+= ",NgayLap='"+hd.ngaylap+"'";
-            qry+= ",MaKM='"+hd.makm+"'";
-            qry+= ",TongTien='"+hd.tongtien+"'";            
-            qry+= " "+"where MaHD='"+hd.mahd+"'";
-            st=conn.createStatement();
-            st.executeUpdate(qry);
-            closeConnect();
-        } catch (Exception e) {
-        }
-    }
     public ArrayList<HoaDon> timTheongay(String tu, String den){
         ArrayList dshd= new ArrayList<HoaDon>();
+        String qry="select * from HoaDon where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
+        getData(qry, dshd);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheoMaHD(String ma){
+        ArrayList dshd= new ArrayList<HoaDon>();
+        String qry="select * from HoaDon where MaHD like '%"+ma+"%'";
+        getData(qry, dshd);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheoMaKH(String ma){
+        ArrayList dshd= new ArrayList<HoaDon>();
+        String qry="select * from HoaDon where MaKH like '%"+ma+"%'";
+        getData(qry, dshd);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheoMaNV(String ma){
+        ArrayList dshd= new ArrayList<HoaDon>();
+        String qry="select * from HoaDon where MaNV like '%"+ma+"%'";
+        getData(qry, dshd);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheoMaKM(String ma){
+        ArrayList dshd= new ArrayList<HoaDon>();
+        String qry="select * from HoaDon where MaKM like '%"+ma+"%'";
+        getData(qry, dshd);
+        return dshd;
+    }
+    public void getData(String qry, ArrayList dshd){
         try {
-            getConnect();
-            String qry="select * from hoadon where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
+            getConnect();           
             st=conn.createStatement();
             rs= st.executeQuery(qry);
             while (rs.next()) {
@@ -97,6 +89,5 @@ public class HoaDonDAO extends MyConnect{
             closeConnect();
         } catch (Exception e) {
         }
-        return dshd;
     }
 }

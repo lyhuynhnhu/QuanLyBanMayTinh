@@ -38,4 +38,9 @@ public class KhachHangBUS {
         dskh=data.timTheoMa(ma);
         return dskh;
     }
+    public ArrayList<KhachHang> timTheoloai(String loai){
+        KhachHangDAO data=new KhachHangDAO();
+        dskh=data.timTheoLoai(loai);
+        return dskh;
+    }
 }

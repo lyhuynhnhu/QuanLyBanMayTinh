@@ -29,6 +29,21 @@ public class KhuyenMaiBUS {
         KhuyenMaiDAO data= new KhuyenMaiDAO();
         data.xoa(x);
     }
+    public ArrayList<KhuyenMai> timTheoten(String ten){
+        KhuyenMaiDAO data=new KhuyenMaiDAO();
+        dskm=data.timTheoTen(ten);
+        return dskm;
+    }
+    public ArrayList<KhuyenMai> timTheoma(String ma){
+        KhuyenMaiDAO data=new KhuyenMaiDAO();
+        dskm=data.timTheoMa(ma);
+        return dskm;
+    }
+    public ArrayList<KhuyenMai> timTheogtri(String gtri){
+        KhuyenMaiDAO data=new KhuyenMaiDAO();
+        dskm=data.timTheoGtri(gtri);
+        return dskm;
+    }
     public ArrayList<KhuyenMai> timTheongay(String tu, String den){
         KhuyenMaiDAO data= new KhuyenMaiDAO();
         dskm=data.timTheongay(tu,den);

@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 public class MyConnect {
     String user="root";
     String pass="";
-    String url="jdbc:mysql://localhost:3306/banmaytinh?useUnicode=yes&characterEncoding=UTF-8";
+    String url="jdbc:mysql://localhost:3306/qlbanmaytinh?useUnicode=yes&characterEncoding=UTF-8";
     Connection conn=null;
     Statement st=null;
     ResultSet rs=null;

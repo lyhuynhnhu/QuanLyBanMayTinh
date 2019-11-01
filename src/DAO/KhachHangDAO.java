@@ -1,35 +1,16 @@
 package DAO;
 
 import DTO.KhachHang;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class KhachHangDAO extends MyConnect{
     public ArrayList docDSKH(){
         ArrayList dskh= new ArrayList<KhachHang>();
-        try{
-            getConnect();
-            String qry="select * from KhachHang";
-            st=conn.createStatement();
-            rs= st.executeQuery(qry);
-            while(rs.next()){
-                KhachHang kh= new KhachHang();
-                kh.makh=rs.getString(1);
-                kh.tenkh=rs.getString(2);
-                kh.diachi=rs.getString(4);
-                kh.dienthoai=rs.getString(3);
-                kh.LoaiKH=rs.getString(5);
-                kh.diem=rs.getInt(6);
-                dskh.add(kh);
-            }
-            closeConnect();
-        } catch (SQLException ex) {
-            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String qry="select * from KhachHang";
+        getData(qry, dskh);
         return dskh;
     }
     public void them(KhachHang kh){
@@ -76,55 +57,29 @@ public class KhachHangDAO extends MyConnect{
         } catch (Exception e) {
         }
     }
+    
     public ArrayList<KhachHang> timTheoTen(String ten){
         ArrayList dskh= new ArrayList<KhachHang>();
-        try {
-            getConnect();
-            String qry="select * from KhachHang where TenKH like '%"+ten+"%'";
-            st=conn.createStatement();
-            rs= st.executeQuery(qry);
-            while (rs.next()) {
-                KhachHang kh= new KhachHang();
-                kh.makh=rs.getString(1);
-                kh.tenkh=rs.getString(2);
-                kh.diachi=rs.getString(4);
-                kh.dienthoai=rs.getString(3);
-                kh.LoaiKH=rs.getString(5);
-                kh.diem=rs.getInt(6);
-                dskh.add(kh);
-            }
-            closeConnect();
-        } catch (Exception e) {
-        }
+        String qry="select * from KhachHang where TenKH like '%"+ten+"%'";
+        getData(qry, dskh);
         return dskh;
     }
     public ArrayList<KhachHang> timTheoMa(String ma){
         ArrayList dskh= new ArrayList<KhachHang>();
-        try {
-            getConnect();
-            String qry="select * from KhachHang where MaKH like '%"+ma+"%'";
-            st=conn.createStatement();
-            rs= st.executeQuery(qry);
-            while (rs.next()) {
-                KhachHang kh= new KhachHang();
-                kh.makh=rs.getString(1);
-                kh.tenkh=rs.getString(2);
-                kh.diachi=rs.getString(4);
-                kh.dienthoai=rs.getString(3);
-                kh.LoaiKH=rs.getString(5);
-                kh.diem=rs.getInt(6);
-                dskh.add(kh);
-            }
-            closeConnect();
-        } catch (Exception e) {
-        }
+        String qry="select * from KhachHang where MaKH like '%"+ma+"%'";
+        getData(qry, dskh);
         return dskh;
     }
     public ArrayList<KhachHang> timTheoLoai(String loai){
         ArrayList dskh= new ArrayList<KhachHang>();
+        String qry="select * from KhachHang where LOAIKH like '%"+loai+"%'";
+        getData(qry, dskh);
+        return dskh;
+    }
+    
+    public void getData(String qry, ArrayList dskh) {
         try {
-            getConnect();
-            String qry="select * from KhachHang where LOAIKH like '%"+loai+"%'";
+            getConnect();           
             st=conn.createStatement();
             rs= st.executeQuery(qry);
             while (rs.next()) {
@@ -140,6 +95,5 @@ public class KhachHangDAO extends MyConnect{
             closeConnect();
         } catch (Exception e) {
         }
-        return dskh;
     }
 }

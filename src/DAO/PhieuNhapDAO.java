@@ -1,7 +1,6 @@
 package DAO;
 
 import DTO.PhieuNhap;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -10,23 +9,8 @@ import java.util.logging.Logger;
 public class PhieuNhapDAO extends MyConnect{
     public ArrayList docDSPN(){
         ArrayList dspn= new ArrayList<PhieuNhap>();
-        try{
-            getConnect();
-            String qry= "select * from phieunhap";
-            st=conn.createStatement();
-            rs=st.executeQuery(qry);
-            while(rs.next()){
-                PhieuNhap pn=new PhieuNhap();
-                pn.mapn= rs.getString(1);
-                pn.mansx= rs.getString(2);
-                pn.manv= rs.getString(3);                
-                pn.ngaylap= rs.getString(4);
-                dspn.add(pn);
-            }
-            closeConnect();
-        }catch(SQLException ex){
-             Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String qry= "select * from phieunhap";
+        getData(qry, dspn);
         return dspn;
     }
     public void them(PhieuNhap pn){
@@ -45,14 +29,10 @@ public class PhieuNhapDAO extends MyConnect{
              Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void sua(PhieuNhap pn){
+    public void xoa(String ma){
         try {
             getConnect();
-            String qry="Update phieunhap set";
-            qry+= " MaNSX='"+pn.mansx+"'";
-            qry+= ",MaNV='"+pn.manv+"'";
-            qry+= ",NgayLap='"+pn.ngaylap+"'";
-            qry+= " "+"where MaPN='"+pn.mapn+"'";
+            String qry="Delete from PhieuNhap where MaPN='"+ma+"'";
             st=conn.createStatement();
             st.executeUpdate(qry);
             closeConnect();
@@ -61,9 +41,31 @@ public class PhieuNhapDAO extends MyConnect{
     }
     public ArrayList<PhieuNhap> timTheongay(String tu, String den){
         ArrayList dspn= new ArrayList<PhieuNhap>();
+        String qry="select * from phieunhap where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
+        getData(qry, dspn);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheomapn(String ma){
+        ArrayList dspn= new ArrayList<PhieuNhap>();
+        String qry="select * from PhieuNhap where MaPN like '%"+ma+"%'";
+        getData(qry, dspn);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheonhasx(String nsx){
+        ArrayList dspn= new ArrayList<PhieuNhap>();
+        String qry="select * from PhieuNhap where MaNSX like '%"+nsx+"%'";
+        getData(qry, dspn);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheonv(String nv){
+        ArrayList dspn= new ArrayList<PhieuNhap>();
+        String qry="select * from PhieuNhap where MaNV like '%"+nv+"%'";
+        getData(qry, dspn);
+        return dspn;
+    }
+    public void getData(String qry, ArrayList dspn){
         try {
-            getConnect();
-            String qry="select * from phieunhap where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
+            getConnect();           
             st=conn.createStatement();
             rs= st.executeQuery(qry);
             while (rs.next()) {
@@ -77,6 +79,5 @@ public class PhieuNhapDAO extends MyConnect{
             closeConnect();
         } catch (Exception e) {
         }
-        return dspn;
-    }
+    }     
 }

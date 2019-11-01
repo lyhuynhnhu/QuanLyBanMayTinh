@@ -15,14 +15,14 @@ public class CTHoaDonBUS {
         dscthd= data.docDSCTHD();
         return dscthd;
     }
+    public ArrayList<ChiTietHoaDon> timCTHD(String ma){
+        CTHoaDonDAO data= new CTHoaDonDAO();
+        dscthd= data.timCTHD(ma);
+        return dscthd;
+    }
     public void them(ChiTietHoaDon cthddto){
         CTHoaDonDAO data= new CTHoaDonDAO();
         data.them(cthddto);
-        dscthd.add(cthddto);
-    }
-    public void sua(ChiTietHoaDon cthddto){
-        CTHoaDonDAO data= new CTHoaDonDAO();
-        data.sua(cthddto);
         dscthd.add(cthddto);
     }
     public void xoa(String x){

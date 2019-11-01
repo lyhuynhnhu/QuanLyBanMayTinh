@@ -15,15 +15,19 @@ public class CTPhieuNhapBUS {
         dsctpn= data.docDSCTPN();
         return dsctpn;
     }
+    public ArrayList<ChiTietPhieuNhap> timCTPN(String ma){
+        CTPhieuNhapDAO data= new CTPhieuNhapDAO();
+        dsctpn= data.timCTPN(ma);
+        return dsctpn;
+    }
     public void them(ChiTietPhieuNhap ctpndto){
         CTPhieuNhapDAO data= new CTPhieuNhapDAO();
         data.them(ctpndto);
         dsctpn.add(ctpndto);
     }
-    public void sua(ChiTietPhieuNhap ctpndto){
+    public void xoa(String x){
         CTPhieuNhapDAO data= new CTPhieuNhapDAO();
-        data.sua(ctpndto);
-        dsctpn.add(ctpndto);
+        data.xoa(x);
     }
 //    public ArrayList<ChiTietPhieuNhap> timTheongay(String tu, String den){
 //        CTPhieuNhapDAO data= new CTPhieuNhapDAO();

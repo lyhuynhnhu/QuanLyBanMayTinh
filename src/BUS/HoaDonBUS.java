@@ -20,11 +20,6 @@ public class HoaDonBUS {
         data.them(hoaDonDTO);
         dshd.add(hoaDonDTO);
     }
-    public void sua(HoaDon hoaDonDTO){
-        HoaDonDAO data= new HoaDonDAO();
-        data.sua(hoaDonDTO);
-        dshd.add(hoaDonDTO);
-    }
     public void xoa(String x){
         HoaDonDAO data= new HoaDonDAO();
         data.xoa(x);
@@ -32,6 +27,26 @@ public class HoaDonBUS {
     public ArrayList<HoaDon> timTheongay(String tu, String den){
         HoaDonDAO data= new HoaDonDAO();
         dshd=data.timTheongay(tu,den);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheomahd(String ma){
+        HoaDonDAO data= new HoaDonDAO();
+        dshd=data.timTheoMaHD(ma);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheomakh(String ma){
+        HoaDonDAO data= new HoaDonDAO();
+        dshd=data.timTheoMaKH(ma);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheomanv(String ma){
+        HoaDonDAO data= new HoaDonDAO();
+        dshd=data.timTheoMaNV(ma);
+        return dshd;
+    }
+    public ArrayList<HoaDon> timTheomakm(String ma){
+        HoaDonDAO data= new HoaDonDAO();
+        dshd=data.timTheoMaKM(ma);
         return dshd;
     }
 }

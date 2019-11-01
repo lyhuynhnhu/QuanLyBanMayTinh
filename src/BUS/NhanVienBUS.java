@@ -39,4 +39,14 @@ public class NhanVienBUS {
         dsnv=data.timTheoMa(ma);
         return dsnv;
     }
+    public ArrayList<NhanVien> timTheochucvu(String chucvu){
+        NhanVienDAO data=new NhanVienDAO();
+        dsnv=data.timTheoChucvu(chucvu);
+        return dsnv;
+    }
+    public ArrayList<NhanVien> timTheogtinh(String gtinh){
+        NhanVienDAO data=new NhanVienDAO();
+        dsnv=data.timTheoGtinh(gtinh);
+        return dsnv;
+    }
 }

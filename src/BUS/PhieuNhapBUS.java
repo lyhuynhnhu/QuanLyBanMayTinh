@@ -20,14 +20,28 @@ public class PhieuNhapBUS {
         data.them(phieuNhapDTO);
         dspn.add(phieuNhapDTO);
     }
-    public void sua(PhieuNhap phieuNhapDTO){
+    public void xoa(String x){
         PhieuNhapDAO data= new PhieuNhapDAO();
-        data.sua(phieuNhapDTO);
-        dspn.add(phieuNhapDTO);
+        data.xoa(x);
     }
     public ArrayList<PhieuNhap> timTheongay(String tu, String den){
         PhieuNhapDAO data= new PhieuNhapDAO();
         dspn=data.timTheongay(tu,den);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheomapn(String ma){
+        PhieuNhapDAO data=new PhieuNhapDAO();
+        dspn=data.timTheomapn(ma);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheonsx(String nsx){
+        PhieuNhapDAO data=new PhieuNhapDAO();
+        dspn=data.timTheonhasx(nsx);
+        return dspn;
+    }
+    public ArrayList<PhieuNhap> timTheonv(String nv){
+        PhieuNhapDAO data=new PhieuNhapDAO();
+        dspn=data.timTheonv(nv);
         return dspn;
     }
 }
