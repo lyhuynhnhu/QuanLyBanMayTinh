@@ -49,4 +49,9 @@ public class KhuyenMaiBUS {
         dskm=data.timTheongay(tu,den);
         return dskm;
     }
+    public ArrayList<KhuyenMai> timKM(String ngay){
+        KhuyenMaiDAO data= new KhuyenMaiDAO();
+        dskm=data.timKM(ngay);
+        return dskm;
+    }
 }

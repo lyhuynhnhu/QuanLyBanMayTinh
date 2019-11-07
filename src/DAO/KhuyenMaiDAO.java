@@ -81,6 +81,12 @@ public class KhuyenMaiDAO extends MyConnect{
         getData(qry, dskm);
         return dskm;
     }
+    public ArrayList<KhuyenMai> timKM(String ngay){
+        ArrayList dskm= new ArrayList<KhuyenMai>();
+        String qry="select * from KhuyenMai where NgayBD<='"+ngay+"' and NgayKT>='"+ngay+"'";
+        getData(qry, dskm);
+        return dskm;
+    }
     public void getData(String qry, ArrayList dskm){
         try {
             getConnect();
