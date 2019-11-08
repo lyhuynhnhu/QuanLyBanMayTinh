@@ -76,7 +76,12 @@ public class KhachHangDAO extends MyConnect{
         getData(qry, dskh);
         return dskh;
     }
-    
+    public ArrayList<KhachHang> timTheoSDT(String sdt){
+        ArrayList dskh= new ArrayList<KhachHang>();
+        String qry="select * from KhachHang where DienThoai='"+sdt+"'";
+        getData(qry, dskh);
+        return dskh;
+    }
     public void getData(String qry, ArrayList dskh) {
         try {
             getConnect();           
