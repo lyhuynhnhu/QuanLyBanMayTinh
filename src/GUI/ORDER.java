@@ -262,7 +262,8 @@ public class ORDER extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnterMouseClicked
-        int tongtien=0, dem=0;
+        int tongtien=0;
+        int dem=0;
         SanPhamBUS sanPhamBUS=new SanPhamBUS();
         listSP= sanPhamBUS.timTheoma(txtMasp.getText());
         tblBanhang.setModel(model);
@@ -292,7 +293,9 @@ public class ORDER extends javax.swing.JFrame {
         for(int i=0; i<tblBanhang.getRowCount(); i++){
             int dongia= Integer.parseInt(tblBanhang.getModel().getValueAt(i, 2).toString());
             int sl= Integer.parseInt(tblBanhang.getModel().getValueAt(i, 3).toString());
-            tongtien += dongia*sl;
+            String kmaiString= Character.toString(txtKM.getText().charAt(0));
+            double km= Double.parseDouble(kmaiString)/100;
+            tongtien += (dongia*sl)- (dongia*sl*km);
         }       
         lbTongtien.setText(Integer.toString(tongtien)+" đ");
     }//GEN-LAST:event_btnEnterMouseClicked
@@ -311,7 +314,7 @@ public class ORDER extends javax.swing.JFrame {
                 Date ngaybd= dateFormat.parse(km.getNgayBD());
                 Date ngaykt= dateFormat.parse(km.getNgayKT());
                 if(nglap.after(ngaybd) && nglap.before(ngaykt)) {
-                    txtKM.setText(km.getMaKM());
+                    txtKM.setText(km.getGiaTri());
                 } 
             }         
         } catch (ParseException ex) {       
