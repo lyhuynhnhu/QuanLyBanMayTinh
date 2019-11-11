@@ -1,6 +1,7 @@
 package BUS;
 import DAO.KhachHangDAO;
 import DTO.KhachHang;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class KhachHangBUS {
@@ -17,12 +18,16 @@ public class KhachHangBUS {
     public void them(KhachHang khachHangDTO){
         KhachHangDAO data= new KhachHangDAO();
         data.them(khachHangDTO);
-        dskh.add(khachHangDTO);
+        //dskh.add(khachHangDTO);
     }
     public void sua(KhachHang khachHangDTO){
         KhachHangDAO data= new KhachHangDAO();
         data.sua(khachHangDTO);
-        dskh.add(khachHangDTO);
+        //dskh.add(khachHangDTO);
+    }
+    public int demsl() throws SQLException{
+        KhachHangDAO data=new KhachHangDAO();
+        return data.demsl();
     }
     public void xoa(String x){
         KhachHangDAO data= new KhachHangDAO();

@@ -31,6 +31,12 @@ public class HoaDonDAO extends MyConnect{
             Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public int demsl() throws SQLException{
+        getConnect();
+        String sql="SELECT COUNT(MaHD) from hoadon";
+     st=conn.createStatement();
+         return st.executeUpdate(sql);
+    }
     public void xoa(String ma){
         try {
             getConnect();

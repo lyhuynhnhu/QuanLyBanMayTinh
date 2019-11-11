@@ -2,6 +2,7 @@ package BUS;
 
 import DAO.HoaDonDAO;
 import DTO.HoaDon;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class HoaDonBUS {
@@ -24,6 +25,9 @@ public class HoaDonBUS {
         HoaDonDAO data= new HoaDonDAO();
         data.xoa(x);
     }
+     public int demsl() throws SQLException{
+        HoaDonDAO data=new HoaDonDAO();
+        return data.demsl();}
     public ArrayList<HoaDon> timTheongay(String tu, String den){
         HoaDonDAO data= new HoaDonDAO();
         dshd=data.timTheongay(tu,den);

@@ -107,6 +107,11 @@ public class STAFF extends javax.swing.JFrame {
                 btnThemMouseClicked(evt);
             }
         });
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnTim.setText("TIM KIEM");
         btnTim.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,6 +124,11 @@ public class STAFF extends javax.swing.JFrame {
         btnXoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaMouseClicked(evt);
+            }
+        });
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
             }
         });
 
@@ -174,7 +184,7 @@ public class STAFF extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -250,7 +260,31 @@ public class STAFF extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXemMouseClicked
 
     private void btnThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMouseClicked
-        NhanVien nhanVienDTO= new NhanVien();
+        int count=0;
+        count=tblNhanVien.getRowCount();
+        String chuoi2="";
+                chuoi2=tblNhanVien.getModel().getValueAt(count-1, 0).toString();
+       // JOptionPane.showMessageDialog(frame, chuoi2);
+        chuoi2=chuoi2.substring(2);
+        count=Integer.parseInt(chuoi2);
+        String chuoi1="";
+        //int chuoi2=0;
+        
+        if(count<10)
+        { chuoi1="NV00"+String.valueOf(count+1);
+            txtMaNV.setText(chuoi1);}
+        else if (count<99)
+        {
+            chuoi1="NV0"+String.valueOf(count+1);
+            txtMaNV.setText(chuoi1);
+        }        else if (count>=99)
+        {
+            chuoi1="NV"+String.valueOf(count+1);
+            txtMaNV.setText(chuoi1);
+        }
+            
+        
+        {NhanVien nhanVienDTO= new NhanVien();
         nhanVienDTO.MaNV=txtMaNV.getText();
         nhanVienDTO.Ten=txtTenNV.getText();
         nhanVienDTO.NgaySinh=dateFormat.format(dcNgsinh.getDate());
@@ -278,6 +312,7 @@ public class STAFF extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(frame, "Thêm thành công!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/thanhcong.png")));
         } else {
             JOptionPane.showMessageDialog(frame, "Thêm thất bại!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/message.jpg")));
+        }
         }
     }//GEN-LAST:event_btnThemMouseClicked
 
@@ -400,6 +435,14 @@ public class STAFF extends javax.swing.JFrame {
             tblNhanVien.setModel(model);
         }
     }//GEN-LAST:event_btnTimMouseClicked
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXoaActionPerformed
     
     public void loadtbl(){
         NhanVienBUS nhanVienBUS=new NhanVienBUS();

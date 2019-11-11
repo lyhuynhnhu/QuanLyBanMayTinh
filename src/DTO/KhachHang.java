@@ -28,8 +28,8 @@ public class KhachHang {
     public String getsdt(){
         return dienthoai;
     }
-    public void setsdt(String tensdt){
-        this.dienthoai=tensdt;
+    public void setsdt(String dienthoai){
+        this.dienthoai=dienthoai;
     }
     
     public String getLoai(){

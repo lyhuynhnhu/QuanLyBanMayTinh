@@ -23,7 +23,7 @@ public class CTHoaDonBUS {
     public void them(ChiTietHoaDon cthddto){
         CTHoaDonDAO data= new CTHoaDonDAO();
         data.them(cthddto);
-        dscthd.add(cthddto);
+        //dscthd.add(cthddto);
     }
     public void xoa(String x){
         CTHoaDonDAO data= new CTHoaDonDAO();

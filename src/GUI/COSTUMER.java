@@ -109,6 +109,11 @@ public class COSTUMER extends javax.swing.JFrame {
                 btnThemMouseClicked(evt);
             }
         });
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnTim.setText("TIM KIEM");
         btnTim.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -382,6 +387,10 @@ public class COSTUMER extends javax.swing.JFrame {
     private void btnTroveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTroveMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_btnTroveMouseClicked
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
 
     public void loadtblKH(){
         KhachHangBUS khachHangBUS=new KhachHangBUS();

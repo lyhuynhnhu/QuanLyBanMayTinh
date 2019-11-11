@@ -1,6 +1,7 @@
 package DAO;
 
 import DTO.KhachHang;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -57,6 +58,13 @@ public class KhachHangDAO extends MyConnect{
         } catch (Exception e) {
         }
     }
+    public int demsl() throws SQLException{
+     getConnect();
+     String sql="SELECT COUNT(MaKH) from khachhang";
+     st=conn.createStatement();
+         return st.executeUpdate(sql);
+     
+    }
     
     public ArrayList<KhachHang> timTheoTen(String ten){
         ArrayList dskh= new ArrayList<KhachHang>();
@@ -101,4 +109,5 @@ public class KhachHangDAO extends MyConnect{
         } catch (Exception e) {
         }
     }
+    
 }
