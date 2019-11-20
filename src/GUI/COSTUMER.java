@@ -78,6 +78,11 @@ public class COSTUMER extends javax.swing.JFrame {
                 btnTroveMouseClicked(evt);
             }
         });
+        btnTrove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTroveActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("MÃ KH");
 
@@ -407,6 +412,10 @@ public class COSTUMER extends javax.swing.JFrame {
         txtDiem.setText("");
         txtDthoai.setText("");
     }//GEN-LAST:event_btnTaomoiMouseClicked
+
+    private void btnTroveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTroveActionPerformed
 
     public void loadtblKH(){
         KhachHangBUS khachHangBUS=new KhachHangBUS();

@@ -5,6 +5,7 @@ import BUS.HoaDonBUS;
 import BUS.KhachHangBUS;
 import BUS.KhuyenMaiBUS;
 import BUS.SanPhamBUS;
+import DAO.MyConnect;
 import DTO.ChiTietHoaDon;
 import DTO.HoaDon;
 import DTO.KhachHang;
@@ -13,17 +14,31 @@ import DTO.SanPham;
 import com.sun.jmx.snmp.BerDecoder;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ORDER extends javax.swing.JFrame {
     public static DefaultTableModel model= new DefaultTableModel();
@@ -105,6 +120,11 @@ public class ORDER extends javax.swing.JFrame {
                 btnLuuInMouseClicked(evt);
             }
         });
+        btnLuuIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLuuInActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Khuyến mãi");
 
@@ -139,6 +159,11 @@ public class ORDER extends javax.swing.JFrame {
         });
 
         btnTrove.setText("Trở về");
+        btnTrove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTroveActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -376,12 +401,19 @@ public class ORDER extends javax.swing.JFrame {
 
     private void btnLuuInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLuuInMouseClicked
         try {
-            luuHD();
+            try {
+                luuHD();
+            } catch (JRException ex) {
+                Logger.getLogger(ORDER.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ORDER.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ORDER.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLuuInMouseClicked
-    public void luuHD() throws SQLException{
+   
+    public void luuHD() throws SQLException, JRException, ClassNotFoundException{
         HoaDonBUS hdbus= new HoaDonBUS();
         CTHoaDonBUS cthdbus= new CTHoaDonBUS();
         HoaDon hd= new HoaDon();
@@ -446,16 +478,17 @@ public class ORDER extends javax.swing.JFrame {
            hd.mahd=chuoi2;}
         else if (count<99)
         {
-            chuoi2="KH0"+String.valueOf(count+1);
+            chuoi2="HD0"+String.valueOf(count+1);
           hd.mahd=chuoi2;
         }        else
         {
-            chuoi2="KH"+String.valueOf(count+1);
+            chuoi2="HD"+String.valueOf(count+1);
             hd.mahd=chuoi2;
         }
         
         {
         //hd.makh= txtMaKH.getText();
+            
         hd.makm= txtKM.getText();
         hd.manv= txtNvien.getText();
         hd.ngaylap= txtNglap.getText();
@@ -471,8 +504,11 @@ public class ORDER extends javax.swing.JFrame {
             cthd.soluong= Integer.parseInt(tblBanhang.getModel().getValueAt(i, 3).toString());
             cthdbus.them(cthd);
         }
+       
         JOptionPane.showMessageDialog(frame, "Đã lưu hóa đơn");
-        }}
+            
+        }xuathoadon(chuoi2);
+        }
         /*txtsl.addKeyListener(new KeyAdapter() {
          public void keyPressed(KeyEvent e) {
             if (e.getKeyCode()==KeyEvent.VK_ENTER) {
@@ -480,6 +516,38 @@ public class ORDER extends javax.swing.JFrame {
             }
          }
       });*/
+        txtDchi.setText("");
+        txtDthoai.setText("");
+        txtKM.setText("0");
+        txtMaKH.setText("");
+        txtMasp.setText("");
+        txtNvien.setText("");
+        txtTenKH.setText("");
+        txtsl.setText("");
+        
+    }
+    
+     public void xuathoadon(String idhd) throws ClassNotFoundException, SQLException, JRException 
+    {
+        //String add="src/GUI/Hoadon.jrxml";
+        Connection con=MyConnect.getC();
+        Hashtable map=new Hashtable();
+        JasperReport report=JasperCompileManager.compileReport("src/GUI/hd.jrxml");
+        map.put("MaHD",idhd);
+        JasperPrint p=JasperFillManager.fillReport(report, map, con);
+        JasperViewer.viewReport(p,false);
+        /*JRPdfExporter ex=new JRPdfExporter();
+        ExporterInput exi=new SimpleExporterInput(p);
+        ex.setExporterInput(exi);
+        OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+               "C:\\Users\\ADMIN\\Documents\\NetBeansProjects\\QuanLyBanMayTinh\\QuanLyBanMayTinh\\src\\GUI\\Hoadon.pdf");
+       // Output
+       ex.setExporterOutput(exporterOutput);
+       SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+       ex.setConfiguration(configuration);
+       ex.exportReport();
+ 
+       System.out.print("Done!");*/
     }
     
     private void txtDthoaiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDthoaiFocusLost
@@ -512,6 +580,15 @@ public class ORDER extends javax.swing.JFrame {
             txtKM.setText("0");
         }
     }//GEN-LAST:event_txtDthoaiFocusLost
+
+    private void btnLuuInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLuuInActionPerformed
+
+    private void btnTroveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroveActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnTroveActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

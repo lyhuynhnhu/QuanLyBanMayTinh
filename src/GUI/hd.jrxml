@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="94"/>
+	<property name="ireport.y" value="101"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="MaHD" class="java.lang.String">
+		<defaultValueExpression><![CDATA["HD001"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     chitiethoadon.`MaHD` AS chitiethoadon_MaHD,
+     chitiethoadon.`MaSP` AS chitiethoadon_MaSP,
+     chitiethoadon.`SoLuong` AS chitiethoadon_SoLuong,
+     chitiethoadon.`DonGia` AS chitiethoadon_DonGia,
+     hoadon.`MaHD` AS hoadon_MaHD,
+     hoadon.`MaKH` AS hoadon_MaKH,
+     hoadon.`MaNV` AS hoadon_MaNV,
+     hoadon.`NgayLap` AS hoadon_NgayLap,
+     hoadon.`MaKM` AS hoadon_MaKM,
+     hoadon.`TongTien` AS hoadon_TongTien,
+     nhanvien.`MaNV` AS nhanvien_MaNV,
+     nhanvien.`TenNV` AS nhanvien_TenNV,
+     khachhang.`MaKH` AS khachhang_MaKH,
+     khachhang.`TenKH` AS khachhang_TenKH,
+     sanpham.`MaSP` AS sanpham_MaSP,
+     sanpham.`TenSP` AS sanpham_TenSP,
+     khachhang.`DiemTichLuy` AS khachhang_DiemTichLuy,
+     khachhang.`DienThoai` AS khachhang_DienThoai
+FROM
+     `hoadon` hoadon INNER JOIN `chitiethoadon` chitiethoadon ON hoadon.`MaHD` = chitiethoadon.`MaHD`
+     INNER JOIN `sanpham` sanpham ON chitiethoadon.`MaSP` = sanpham.`MaSP`
+     INNER JOIN `khachhang` khachhang ON hoadon.`MaKH` = khachhang.`MaKH`
+     INNER JOIN `nhanvien` nhanvien ON hoadon.`MaNV` = nhanvien.`MaNV`
+WHERE
+     hoadon.`MaHD` = $P{MaHD}]]>
+	</queryString>
+	<field name="chitiethoadon_MaHD" class="java.lang.String"/>
+	<field name="chitiethoadon_MaSP" class="java.lang.String"/>
+	<field name="chitiethoadon_SoLuong" class="java.lang.Integer"/>
+	<field name="chitiethoadon_DonGia" class="java.lang.String"/>
+	<field name="hoadon_MaHD" class="java.lang.String"/>
+	<field name="hoadon_MaKH" class="java.lang.String"/>
+	<field name="hoadon_MaNV" class="java.lang.String"/>
+	<field name="hoadon_NgayLap" class="java.sql.Date"/>
+	<field name="hoadon_MaKM" class="java.lang.String"/>
+	<field name="hoadon_TongTien" class="java.lang.String"/>
+	<field name="nhanvien_MaNV" class="java.lang.String"/>
+	<field name="nhanvien_TenNV" class="java.lang.String"/>
+	<field name="khachhang_MaKH" class="java.lang.String"/>
+	<field name="khachhang_TenKH" class="java.lang.String"/>
+	<field name="sanpham_MaSP" class="java.lang.String"/>
+	<field name="sanpham_TenSP" class="java.lang.String"/>
+	<field name="khachhang_DiemTichLuy" class="java.lang.Integer"/>
+	<field name="khachhang_DienThoai" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="263" height="62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[HÓA ĐƠN BÁN HÀNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="303" y="62" width="97" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Mã hóa đơn:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="62" width="133" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoadon_MaHD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="148" y="79" width="122" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Mã sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="270" y="79" width="227" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Tên sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="498" y="79" width="86" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="584" y="79" width="99" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Đơn giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="682" y="79" width="120" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên nhân viên:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="0" width="147" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nhanvien_TenNV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="20" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày lập:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="20" width="147" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{hoadon_NgayLap}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="497" y="0" width="87" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên KH:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="584" y="0" width="154" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{khachhang_TenKH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="498" y="20" width="86" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Điểm KH:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="583" y="20" width="155" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{khachhang_DiemTichLuy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="498" y="40" width="86" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số điện thoại:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="584" y="40" width="154" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{khachhang_DienThoai}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="270" y="0" width="227" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{sanpham_TenSP}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="497" y="0" width="86" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{chitiethoadon_SoLuong}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,###">
+					<reportElement style="Detail" x="583" y="0" width="99" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.valueOf( $F{chitiethoadon_DonGia} )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,###">
+					<reportElement style="Detail" x="682" y="0" width="120" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.valueOf( $F{chitiethoadon_DonGia} )*$V{PAGE_NUMBER}.valueOf( $F{chitiethoadon_SoLuong} )]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="802" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+			</frame>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="148" y="1" width="122" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{chitiethoadon_MaSP}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="583" y="4" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền:]]></text>
+			</staticText>
+			<textField pattern=" #,##0VND">
+				<reportElement x="683" y="4" width="119" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}.valueOf( $F{hoadon_TongTien} )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="262" y="24" width="279" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[XIN CẢM ƠN!HẸN GẶP LẠI]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

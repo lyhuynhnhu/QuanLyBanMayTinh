@@ -8,7 +8,7 @@ public class MyConnect {
     String user="root";
     String pass="";
     String url="jdbc:mysql://localhost:3306/qlbanmaytinh?useUnicode=yes&characterEncoding=UTF-8";
-    Connection conn=null;
+    static Connection conn=null;
     Statement st=null;
     ResultSet rs=null;
     public void getConnect(){
@@ -21,11 +21,18 @@ public class MyConnect {
                 JOptionPane.showMessageDialog(null, "Lỗi kết nối database");
         }
     }
+    
     public void closeConnect(){
         try {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(MyConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static Connection getC() throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.jdbc.Driver");
+         Connection con;
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/qlbanmaytinh?useUnicode=yes&characterEncoding=UTF-8", "root", "");
+         return con;
     }
 }

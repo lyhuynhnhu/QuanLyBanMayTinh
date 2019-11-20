@@ -9,14 +9,14 @@ import java.util.logging.Logger;
 public class KhuyenMaiDAO extends MyConnect{
     public ArrayList docDSKM(){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry= "select * from KhuyenMai";
+        String qry= "select * from khuyenmai";
         getData(qry, dskm);
         return dskm;
     }
     public void them(KhuyenMai km){
         try{
             getConnect();
-            String qry="Insert into KhuyenMai values(";
+            String qry="Insert into khuyenmai values(";
             qry+= "'"+km.MaKM+"'";
             qry+= ",'"+km.TenKM+"'";
             qry+= ",'"+km.GiaTri+"'";
@@ -33,7 +33,7 @@ public class KhuyenMaiDAO extends MyConnect{
     public void xoa(String ma){
         try{
             getConnect();
-            String qry="Delete from KhuyenMai where MaKM='"+ma+"'";
+            String qry="Delete from khuyenmai where MaKM='"+ma+"'";
             st= conn.createStatement();
             st.executeUpdate(qry);
             closeConnect();
@@ -44,7 +44,7 @@ public class KhuyenMaiDAO extends MyConnect{
     public void sua (KhuyenMai km){
         try{
             getConnect();
-            String qry="Update KhuyenMai set";
+            String qry="Update khuyenmai set";
             qry+= " TenKM='"+km.TenKM+"'";
             qry+= ",GiaTri='"+km.GiaTri+"'";
             qry+= ",NgayBD='"+km.NgayBD+"'";
@@ -59,31 +59,31 @@ public class KhuyenMaiDAO extends MyConnect{
     }
     public ArrayList<KhuyenMai> timTheoMa(String ma){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry="select * from KhuyenMai where MaKM like '%"+ma+"%'";
+        String qry="select * from khuyenmai where MaKM like '%"+ma+"%'";
         getData(qry, dskm);
         return dskm;
     }
     public ArrayList<KhuyenMai> timTheoTen(String ten){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry="select * from KhuyenMai where TenKM like '%"+ten+"%'";
+        String qry="select * from khuyenmai where TenKM like '%"+ten+"%'";
         getData(qry, dskm);
         return dskm;
     }
     public ArrayList<KhuyenMai> timTheoGtri(String gtri){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry="select * from KhuyenMai where GiaTri like '%"+gtri+"%'";
+        String qry="select * from khuyenmai where GiaTri like '%"+gtri+"%'";
         getData(qry, dskm);
         return dskm;
     }
     public ArrayList<KhuyenMai> timTheongay(String tu, String den){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry="select * from KhuyenMai where NgayBD>='"+tu+"' and NgayKT<='"+den+"'";
+        String qry="select * from khuyenmai where NgayBD>='"+tu+"' and NgayKT<='"+den+"'";
         getData(qry, dskm);
         return dskm;
     }
     public ArrayList<KhuyenMai> timKM(String ngay){
         ArrayList dskm= new ArrayList<KhuyenMai>();
-        String qry="select * from KhuyenMai where NgayBD<='"+ngay+"' and NgayKT>='"+ngay+"'";
+        String qry="select * from khuyenmai where NgayBD<='"+ngay+"' and NgayKT>='"+ngay+"'";
         getData(qry, dskm);
         return dskm;
     }
