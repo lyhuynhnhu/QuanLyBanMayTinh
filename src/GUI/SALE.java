@@ -72,6 +72,7 @@ public class SALE extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,6 +97,8 @@ public class SALE extends javax.swing.JFrame {
                 "MÃ KM", "TÊN KM", "GIÁ TRỊ", "NGÀY BĐ", "NGÀY KT"
             }
         ));
+        tblKM.setRowHeight(25);
+        tblKM.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblKM.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblKMMouseClicked(evt);

@@ -201,6 +201,7 @@ public class PRODUCT extends javax.swing.JFrame {
             }
         });
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -541,10 +542,10 @@ public class PRODUCT extends javax.swing.JFrame {
         header.add("Tên SP"); 
         header.add("Xuất xứ");
         header.add("Nhà SX");      
-        header.add("Khối lượng");
-        header.add("Kích thước");
+        header.add("Khlượng (kg)");
+        header.add("Kthước (inch)");
         header.add("Số lượng");
-        header.add("Tgian BH");
+        header.add("TGBH (tháng)");
         header.add("Đơn giá");
         header.add("Ghi chú");
         

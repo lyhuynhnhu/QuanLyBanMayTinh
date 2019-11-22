@@ -168,7 +168,7 @@ public class LG extends javax.swing.JFrame {
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(panel, "Đăng nhập thành công!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/thanhcong.png")));
                     this.setVisible(false);
-                    MAIN homepage=new MAIN(rs.getString(4));
+                    MAIN homepage=new MAIN(rs.getString(1),rs.getString(4));
                     homepage.setVisible(true);    
                 }else{
                     JOptionPane.showMessageDialog(panel, "Username hoặc Password sai. Vui lòng nhập lại!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/message.jpg")));

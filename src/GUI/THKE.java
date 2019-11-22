@@ -128,6 +128,7 @@ public class THKE extends javax.swing.JFrame {
             }
         });
 
+        btnNsx.setBackground(new java.awt.Color(255, 255, 255));
         btnNsx.setText("...");
         btnNsx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,6 +136,7 @@ public class THKE extends javax.swing.JFrame {
             }
         });
 
+        btnSP.setBackground(new java.awt.Color(255, 255, 255));
         btnSP.setText("...");
         btnSP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,6 +144,7 @@ public class THKE extends javax.swing.JFrame {
             }
         });
 
+        btnKH.setBackground(new java.awt.Color(255, 255, 255));
         btnKH.setText("...");
         btnKH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -229,12 +232,15 @@ public class THKE extends javax.swing.JFrame {
                 "STT", "MÃ HD", "MÃ SP", "TÊN SP", "S.LƯỢNG", "THÀNH TIỀN"
             }
         ));
+        tblThongke.setRowHeight(25);
+        tblThongke.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane1.setViewportView(tblThongke);
 
         jLabel7.setText("S.LƯỢNG");
 
         jLabel8.setText("TỔNG ");
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

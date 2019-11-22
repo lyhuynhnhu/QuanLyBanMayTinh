@@ -62,8 +62,13 @@ public class TableNSX extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblNSX.setRowHeight(25);
+        tblNSX.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane1.setViewportView(tblNSX);
 
+        btnChon.setBackground(new java.awt.Color(255, 255, 255));
+        btnChon.setForeground(new java.awt.Color(0, 153, 51));
+        btnChon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tick.png"))); // NOI18N
         btnChon.setText("Chọn");
         btnChon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -71,6 +76,9 @@ public class TableNSX extends javax.swing.JFrame {
             }
         });
 
+        btnBochon.setBackground(new java.awt.Color(255, 255, 255));
+        btnBochon.setForeground(new java.awt.Color(255, 51, 51));
+        btnBochon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
         btnBochon.setText("Bỏ chọn");
         btnBochon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,7 +100,7 @@ public class TableNSX extends javax.swing.JFrame {
                         .addGap(233, 233, 233)
                         .addComponent(btnChon, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnBochon, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBochon, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

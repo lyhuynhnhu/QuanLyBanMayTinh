@@ -79,6 +79,7 @@ public class STAFF extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,6 +112,8 @@ public class STAFF extends javax.swing.JFrame {
                 "MÃ NV", "TÊN NV", "NGSINH", "GIỚI TÍNH", "ĐỊA CHỈ", "SĐT", "LƯƠNG", "CHỨC VỤ"
             }
         ));
+        tblNhanVien.setRowHeight(25);
+        tblNhanVien.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblNhanVienMouseClicked(evt);

@@ -11,9 +11,6 @@ import DTO.HoaDon;
 import DTO.KhachHang;
 import DTO.KhuyenMai;
 import DTO.SanPham;
-import com.sun.jmx.snmp.BerDecoder;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -21,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -52,9 +48,17 @@ public class ORDER extends javax.swing.JFrame {
     //chuyển đổi ngày hiện tại sang chuỗi
     String date = dateFormat.format(new Date());
     private JFrame frame;
+    String ma="", quyen="";
     public ORDER() {
         initComponents();        
         loadData();
+    }
+    public ORDER(String ma, String quyen) {
+        initComponents();        
+        loadData();
+        this.ma= ma;
+        this.quyen= quyen;
+        txtNvien.setText(ma);
     }
 
     @SuppressWarnings("unchecked")
@@ -112,17 +116,13 @@ public class ORDER extends javax.swing.JFrame {
 
         jLabel6.setText("DỊA CHỈ");
 
-        btnLuuIn.setBackground(new java.awt.Color(51, 204, 255));
-        btnLuuIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnLuuIn.setBackground(new java.awt.Color(255, 255, 255));
+        btnLuuIn.setForeground(new java.awt.Color(0, 204, 255));
+        btnLuuIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inhd.jpg"))); // NOI18N
         btnLuuIn.setText("LƯU VA IN HD");
         btnLuuIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLuuInMouseClicked(evt);
-            }
-        });
-        btnLuuIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLuuInActionPerformed(evt);
             }
         });
 
@@ -143,6 +143,7 @@ public class ORDER extends javax.swing.JFrame {
 
         jLabel9.setText("Mã SP");
 
+        btnChonSP.setBackground(new java.awt.Color(255, 255, 255));
         btnChonSP.setText("...");
         btnChonSP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,10 +159,11 @@ public class ORDER extends javax.swing.JFrame {
             }
         });
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
-        btnTrove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTroveActionPerformed(evt);
+        btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTroveMouseClicked(evt);
             }
         });
 
@@ -197,6 +199,8 @@ public class ORDER extends javax.swing.JFrame {
                 "MA SP", "TEN SP", "DON GIA", "SO LUONG "
             }
         ));
+        tblBanhang.setRowHeight(25);
+        tblBanhang.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane1.setViewportView(tblBanhang);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -581,14 +585,9 @@ public class ORDER extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtDthoaiFocusLost
 
-    private void btnLuuInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLuuInActionPerformed
-
-    private void btnTroveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroveActionPerformed
-        // TODO add your handling code here:
+    private void btnTroveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTroveMouseClicked
         this.setVisible(false);
-    }//GEN-LAST:event_btnTroveActionPerformed
+    }//GEN-LAST:event_btnTroveMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

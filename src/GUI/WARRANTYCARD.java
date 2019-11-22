@@ -67,6 +67,7 @@ public class WARRANTYCARD extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,6 +93,8 @@ public class WARRANTYCARD extends javax.swing.JFrame {
                 "MA  BH", "MA  HĐ", "MA  SP", "LOAI", "TINH TRANG"
             }
         ));
+        tblPBH.setRowHeight(25);
+        tblPBH.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblPBH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPBHMouseClicked(evt);

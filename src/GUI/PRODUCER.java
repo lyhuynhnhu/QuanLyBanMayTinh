@@ -61,6 +61,7 @@ public class PRODUCER extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,6 +87,8 @@ public class PRODUCER extends javax.swing.JFrame {
                 "MA NSX", "TEN NSX"
             }
         ));
+        tblNSX.setRowHeight(25);
+        tblNSX.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblNSX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblNSXMouseClicked(evt);
@@ -93,7 +96,6 @@ public class PRODUCER extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblNSX);
 
-        btnXem.setBackground(null);
         btnXem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fileview_text.png"))); // NOI18N
         btnXem.setText("XEM DS");
         btnXem.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,7 +104,6 @@ public class PRODUCER extends javax.swing.JFrame {
             }
         });
 
-        btnSua.setBackground(null);
         btnSua.setForeground(new java.awt.Color(51, 204, 0));
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/update.png"))); // NOI18N
         btnSua.setText("SỬA");
@@ -112,7 +113,6 @@ public class PRODUCER extends javax.swing.JFrame {
             }
         });
 
-        btnThem.setBackground(null);
         btnThem.setForeground(new java.awt.Color(102, 204, 255));
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/them.png"))); // NOI18N
         btnThem.setText("THÊM");
@@ -122,7 +122,6 @@ public class PRODUCER extends javax.swing.JFrame {
             }
         });
 
-        btnTim.setBackground(null);
         btnTim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search (1).png"))); // NOI18N
         btnTim.setText("TÌM KIẾM");
         btnTim.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,7 +130,6 @@ public class PRODUCER extends javax.swing.JFrame {
             }
         });
 
-        btnXoa.setBackground(null);
         btnXoa.setForeground(new java.awt.Color(255, 51, 51));
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
         btnXoa.setText("XÓA");
@@ -141,7 +139,6 @@ public class PRODUCER extends javax.swing.JFrame {
             }
         });
 
-        btnTaomoi.setBackground(null);
         btnTaomoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reset.png"))); // NOI18N
         btnTaomoi.setText("TẠO MỚI ");
         btnTaomoi.addMouseListener(new java.awt.event.MouseAdapter() {

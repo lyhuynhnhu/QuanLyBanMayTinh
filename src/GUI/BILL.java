@@ -80,6 +80,7 @@ public class BILL extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,6 +109,8 @@ public class BILL extends javax.swing.JFrame {
                 "MA HD", "MA KH", "MA NV", "NG LAP", "MA KM", "T.TIEN"
             }
         ));
+        tblHD.setRowHeight(25);
+        tblHD.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblHD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblHDMouseClicked(evt);
@@ -137,6 +140,8 @@ public class BILL extends javax.swing.JFrame {
                 "MA HD", "MA SP", "SO LUONG", "DON GIA"
             }
         ));
+        tblCTHD.setRowHeight(25);
+        tblCTHD.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane2.setViewportView(tblCTHD);
 
         btnThem.setBackground(new java.awt.Color(255, 255, 255));

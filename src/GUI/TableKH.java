@@ -66,10 +66,14 @@ public class TableKH extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblKH.setRowHeight(25);
+        tblKH.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane1.setViewportView(tblKH);
 
         cbTim.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tìm theo", "Tên KH", "Loại KH" }));
 
+        btnTim.setBackground(new java.awt.Color(255, 255, 255));
+        btnTim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search (1).png"))); // NOI18N
         btnTim.setText("Tìm kiếm ");
         btnTim.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -77,6 +81,9 @@ public class TableKH extends javax.swing.JFrame {
             }
         });
 
+        btnChon.setBackground(new java.awt.Color(255, 255, 255));
+        btnChon.setForeground(new java.awt.Color(0, 153, 51));
+        btnChon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tick.png"))); // NOI18N
         btnChon.setText("Chọn");
         btnChon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +91,9 @@ public class TableKH extends javax.swing.JFrame {
             }
         });
 
+        btnBochon.setBackground(new java.awt.Color(255, 255, 255));
+        btnBochon.setForeground(new java.awt.Color(255, 51, 51));
+        btnBochon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
         btnBochon.setText("Bỏ chọn");
         btnBochon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,13 +112,13 @@ public class TableKH extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(txtTim, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(268, 268, 268)
                 .addComponent(btnChon, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBochon, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBochon, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

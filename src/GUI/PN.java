@@ -77,6 +77,7 @@ public class PN extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -98,6 +99,8 @@ public class PN extends javax.swing.JFrame {
                 "MA PN", "MA NSX", "MA NV", "NGAY LAP"
             }
         ));
+        tblPN.setRowHeight(25);
+        tblPN.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblPN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPNMouseClicked(evt);
@@ -133,6 +136,8 @@ public class PN extends javax.swing.JFrame {
                 "MA PN", "MA SP", "S.LUONG", "DON GIA"
             }
         ));
+        tblCTPN.setRowHeight(25);
+        tblCTPN.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane2.setViewportView(tblCTPN);
 
         jLabel6.setText("Chi Tiết Phiếu Nhập");
@@ -192,6 +197,8 @@ public class PN extends javax.swing.JFrame {
                 btnTaomoiMouseClicked(evt);
             }
         });
+
+        dcNglap.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

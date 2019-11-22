@@ -72,6 +72,7 @@ public class COSTUMER extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        btnTrove.setBackground(new java.awt.Color(255, 255, 255));
         btnTrove.setText("Trở về");
         btnTrove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,6 +159,8 @@ public class COSTUMER extends javax.swing.JFrame {
                 "MA KH", "TEN KH", "DIA CHI", "SDT", "LOAI KH", "DIEM TL"
             }
         ));
+        tblKhachHang.setRowHeight(25);
+        tblKhachHang.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblKhachHangMouseClicked(evt);

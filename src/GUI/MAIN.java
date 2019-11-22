@@ -1,15 +1,17 @@
 package GUI;
 
+import java.awt.Color;
 import javax.swing.*;
 
 public class MAIN extends javax.swing.JFrame {
-    String quyen="";
+    String ma="", quyen="";
     private JFrame frame;
     public MAIN() {
         initComponents();
     }
-    public MAIN(String quyen) {
+    public MAIN(String ma, String quyen) {
         initComponents();
+        this.ma= ma;
         this.quyen= quyen;
     }
     @SuppressWarnings("unchecked")
@@ -65,7 +67,7 @@ public class MAIN extends javax.swing.JFrame {
 
         btnNSX.setBackground(new java.awt.Color(255, 255, 255));
         btnNSX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/doitac.png"))); // NOI18N
-        btnNSX.setText("QUẢN LÍ NSX");
+        btnNSX.setText("QUẢN LÍ NHÀ SX");
         btnNSX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNSXMouseClicked(evt);
@@ -241,7 +243,7 @@ public class MAIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSPMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             PRODUCT product= new PRODUCT();
             product.setVisible(true);
         } else {
@@ -250,7 +252,7 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSPMouseClicked
 
     private void btnKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKHMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             COSTUMER costumer= new COSTUMER();
             costumer.setVisible(true);
         } else {
@@ -259,70 +261,62 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKHMouseClicked
 
     private void btnPBHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPBHMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             WARRANTYCARD warrantycard= new WARRANTYCARD();
             warrantycard.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");        
     }//GEN-LAST:event_btnPBHMouseClicked
 
     private void btnPNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPNMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             PN pn= new PN();
             pn.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý"); 
     }//GEN-LAST:event_btnPNMouseClicked
 
     private void btnHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHDMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             BILL bill= new BILL();
             bill.setVisible(true);           
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý"); 
     }//GEN-LAST:event_btnHDMouseClicked
 
     private void btnKMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKMMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             SALE sale= new SALE();
             sale.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");       
     }//GEN-LAST:event_btnKMMouseClicked
 
     private void btnNSXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNSXMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             PRODUCER producer= new PRODUCER();
             producer.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");
     }//GEN-LAST:event_btnNSXMouseClicked
 
     private void btnNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNVMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             STAFF staff= new STAFF();
             staff.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");
     }//GEN-LAST:event_btnNVMouseClicked
 
     private void btnThongkeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThongkeMouseClicked
-        if(quyen == "AD"){
+        if(quyen == "QL"){
             THKE thke= new THKE();
             thke.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền thống kê");
     }//GEN-LAST:event_btnThongkeMouseClicked
 
     private void btnBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBanHangMouseClicked
-        if(quyen == "QL"){
-            JOptionPane.showMessageDialog(frame, "Bạn không có quyền bán hàng");
-        } else {
-            ORDER order= new ORDER();
-            order.setVisible(true);
-        }
+        ORDER order= new ORDER(ma, quyen);
+        order.setVisible(true);
     }//GEN-LAST:event_btnBanHangMouseClicked
 
     private void btnNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhapHangMouseClicked
-        if(quyen == "QL"){
-            JOptionPane.showMessageDialog(frame, "Bạn không có quyền nhập hàng");
-        } else {
-            NhanHang nhanHang= new NhanHang();
-            nhanHang.setVisible(true);
-        }
+        NhanHang nhanHang= new NhanHang();
+        nhanHang.setVisible(true);
     }//GEN-LAST:event_btnNhapHangMouseClicked
 
     private void btnThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMouseClicked
@@ -330,7 +324,7 @@ public class MAIN extends javax.swing.JFrame {
         LG login= new LG();
         login.setVisible(true);
     }//GEN-LAST:event_btnThoatMouseClicked
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
