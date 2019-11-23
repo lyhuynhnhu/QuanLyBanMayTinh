@@ -243,7 +243,7 @@ public class MAIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSPMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             PRODUCT product= new PRODUCT();
             product.setVisible(true);
         } else {
@@ -252,7 +252,7 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSPMouseClicked
 
     private void btnKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKHMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             COSTUMER costumer= new COSTUMER();
             costumer.setVisible(true);
         } else {
@@ -261,49 +261,49 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKHMouseClicked
 
     private void btnPBHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPBHMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             WARRANTYCARD warrantycard= new WARRANTYCARD();
             warrantycard.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");        
     }//GEN-LAST:event_btnPBHMouseClicked
 
     private void btnPNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPNMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             PN pn= new PN();
             pn.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý"); 
     }//GEN-LAST:event_btnPNMouseClicked
 
     private void btnHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHDMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             BILL bill= new BILL();
             bill.setVisible(true);           
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý"); 
     }//GEN-LAST:event_btnHDMouseClicked
 
     private void btnKMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKMMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             SALE sale= new SALE();
             sale.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");       
     }//GEN-LAST:event_btnKMMouseClicked
 
     private void btnNSXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNSXMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             PRODUCER producer= new PRODUCER();
             producer.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");
     }//GEN-LAST:event_btnNSXMouseClicked
 
     private void btnNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNVMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             STAFF staff= new STAFF();
             staff.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");
     }//GEN-LAST:event_btnNVMouseClicked
 
     private void btnThongkeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThongkeMouseClicked
-        if(quyen == "QL"){
+        if("QL".equals(quyen)){
             THKE thke= new THKE();
             thke.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền thống kê");
