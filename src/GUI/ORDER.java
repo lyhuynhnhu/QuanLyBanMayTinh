@@ -88,7 +88,6 @@ public class ORDER extends javax.swing.JFrame {
         txtsl = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtMasp = new javax.swing.JTextField();
-        btnChonSP = new javax.swing.JButton();
         btnEnter = new javax.swing.JButton();
         btnTrove = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -142,14 +141,6 @@ public class ORDER extends javax.swing.JFrame {
         jLabel12.setText("Số lượng");
 
         jLabel9.setText("Mã SP");
-
-        btnChonSP.setBackground(new java.awt.Color(255, 255, 255));
-        btnChonSP.setText("...");
-        btnChonSP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnChonSPMouseClicked(evt);
-            }
-        });
 
         btnEnter.setBackground(new java.awt.Color(102, 204, 255));
         btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok.png"))); // NOI18N
@@ -223,9 +214,7 @@ public class ORDER extends javax.swing.JFrame {
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtsl, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnChonSP)
-                        .addGap(27, 27, 27)
+                        .addGap(38, 38, 38)
                         .addComponent(btnEnter))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
@@ -280,13 +269,13 @@ public class ORDER extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTrove)
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMasp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnChonSP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtsl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEnter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMasp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtsl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -380,11 +369,6 @@ public class ORDER extends javax.swing.JFrame {
         }       
         lbTongtien.setText(Integer.toString(tongtien));
     }//GEN-LAST:event_btnEnterMouseClicked
-
-    private void btnChonSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChonSPMouseClicked
-        TableSP tableSP=new TableSP();
-        tableSP.setVisible(true);
-    }//GEN-LAST:event_btnChonSPMouseClicked
     public void loadData(){
         try {
             txtNglap.setText(date);
@@ -622,7 +606,6 @@ public class ORDER extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChonSP;
     private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnLuuIn;
     private javax.swing.JButton btnTrove;

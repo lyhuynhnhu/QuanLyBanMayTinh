@@ -20,6 +20,11 @@ public class CTHoaDonBUS {
         dscthd= data.timCTHD(ma);
         return dscthd;
     }
+    public ArrayList<ChiTietHoaDon> locTheomasp(String mahd,String masp){
+        CTHoaDonDAO data= new CTHoaDonDAO();
+        dscthd= data.locTheoMaSP(mahd, masp);
+        return dscthd;
+    }
     public ArrayList<ChiTietHoaDon> timTheomasp(String ma){
         CTHoaDonDAO data= new CTHoaDonDAO();
         dscthd= data.timTheoMaSP(ma);

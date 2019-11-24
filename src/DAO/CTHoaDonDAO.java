@@ -19,6 +19,12 @@ public class CTHoaDonDAO extends MyConnect{
         getData(qry, dscthd);
         return dscthd;
     }
+    public ArrayList<ChiTietHoaDon> locTheoMaSP(String mahd,String masp){
+        ArrayList dscthd= new ArrayList<ChiTietHoaDon>();
+        String qry= "select * from ChiTietHoaDon where MaHD="+mahd+" AND MaSP="+masp+"";
+        getData(qry, dscthd);
+        return dscthd;
+    }
     public ArrayList<ChiTietHoaDon> timTheoMaSP(String ma){
         ArrayList dscthd= new ArrayList<ChiTietHoaDon>();
         String qry= "select * from ChiTietHoaDon where MaSP like '%"+ma+"%'";

@@ -16,6 +16,10 @@ import javax.swing.table.DefaultTableModel;
 public class THKE extends javax.swing.JFrame {
     
     SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+    public ArrayList<HoaDon> listHD=new ArrayList<>();
+    public ArrayList<ChiTietHoaDon> listCTHD=new ArrayList<>();
+    public ArrayList<SanPham> listSP=new ArrayList<>();
+    public ArrayList<String> mang = new ArrayList<>();
     public THKE() {
         initComponents();
     }
@@ -38,9 +42,6 @@ public class THKE extends javax.swing.JFrame {
         txtSP = new javax.swing.JTextField();
         txtKH = new javax.swing.JTextField();
         txtNSX = new javax.swing.JTextField();
-        btnNsx = new javax.swing.JButton();
-        btnSP = new javax.swing.JButton();
-        btnKH = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblThongke = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -95,60 +96,21 @@ public class THKE extends javax.swing.JFrame {
             }
         });
 
-        txtSP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSPMouseClicked(evt);
-            }
-        });
         txtSP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSPKeyPressed(evt);
             }
         });
 
-        txtKH.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtKHMouseClicked(evt);
-            }
-        });
         txtKH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtKHKeyPressed(evt);
             }
         });
 
-        txtNSX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNSXMouseClicked(evt);
-            }
-        });
         txtNSX.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNSXKeyPressed(evt);
-            }
-        });
-
-        btnNsx.setBackground(new java.awt.Color(255, 255, 255));
-        btnNsx.setText("...");
-        btnNsx.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnNsxMouseClicked(evt);
-            }
-        });
-
-        btnSP.setBackground(new java.awt.Color(255, 255, 255));
-        btnSP.setText("...");
-        btnSP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSPMouseClicked(evt);
-            }
-        });
-
-        btnKH.setBackground(new java.awt.Color(255, 255, 255));
-        btnKH.setText("...");
-        btnKH.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnKHMouseClicked(evt);
             }
         });
 
@@ -162,30 +124,23 @@ public class THKE extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtKH)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnKH))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dcTu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtKH))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtSP)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSP)))
-                .addGap(63, 63, 63)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(txtSP))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(dcTu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dcDen, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtNSX)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNsx)))
+                    .addComponent(txtNSX))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -199,22 +154,19 @@ public class THKE extends javax.swing.JFrame {
                     .addComponent(dcDen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(17, 17, 17)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSP)))
+                            .addComponent(txtSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(btnNsx))))
+                            .addComponent(jLabel5))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKH))
+                    .addComponent(txtKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -319,27 +271,10 @@ public class THKE extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnTroveMouseClicked
 
-    private void btnSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSPMouseClicked
-        TableSP tableSP=new TableSP();
-        tableSP.setVisible(true);
-    }//GEN-LAST:event_btnSPMouseClicked
-
-    private void btnKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKHMouseClicked
-        TableKH tableKH= new TableKH();
-        tableKH.setVisible(true);
-    }//GEN-LAST:event_btnKHMouseClicked
-
-    private void btnNsxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNsxMouseClicked
-        TableNSX tableNSX= new TableNSX();
-        tableNSX.setVisible(true);
-    }//GEN-LAST:event_btnNsxMouseClicked
-
     private void dcDenPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dcDenPropertyChange
         try {
             DefaultTableModel model=new DefaultTableModel();
-            ArrayList<HoaDon> listHD=new ArrayList<>();
-            ArrayList<ChiTietHoaDon> listCTHD=new ArrayList<>();
-            int stt=1, tongSluong=0, tongtien=0;
+            int i=0, stt=1, tongSluong=0, tongtien=0;
             String tu= dateFormat.format(dcTu.getDate());
             String den= dateFormat.format(dcDen.getDate());
             HoaDonBUS hoaDonBUS= new HoaDonBUS();
@@ -348,6 +283,7 @@ public class THKE extends javax.swing.JFrame {
             String col[]={"STT","Mã HĐ","Ngày lập","Số lượng", "Tổng tiền"};
             model.setColumnIdentifiers(col);
             for(HoaDon hd: listHD){
+                mang.add(hd.getmahd());
                 CTHoaDonBUS cTHoaDonBUS= new CTHoaDonBUS();
                 listCTHD= cTHoaDonBUS.timCTHD(hd.getmahd());
                 int demSoluong=0;
@@ -371,14 +307,6 @@ public class THKE extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtKHKeyPressed
 
-    private void txtKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtKHMouseClicked
-        thkeKH();
-    }//GEN-LAST:event_txtKHMouseClicked
-
-    private void txtSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSPMouseClicked
-        thkeSP();
-    }//GEN-LAST:event_txtSPMouseClicked
-
     private void txtSPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSPKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             thkeSP();
@@ -390,10 +318,6 @@ public class THKE extends javax.swing.JFrame {
             thkeNSX();
         }
     }//GEN-LAST:event_txtNSXKeyPressed
-
-    private void txtNSXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNSXMouseClicked
-        thkeNSX();
-    }//GEN-LAST:event_txtNSXMouseClicked
 
     public void thkeKH(){
         try {
@@ -432,34 +356,33 @@ public class THKE extends javax.swing.JFrame {
     }
     public void thkeSP(){
         try {
-            int stt=1, tongSluong=0, tongtien=0; 
-            String maSP= txtSP.getText(); String tensp="",nglap="";
+            int stt=1, sl=0, thanhtien=0, tongSluong=0, tongtien=0; 
+            String maSP= txtSP.getText(); String tensp="";
             DefaultTableModel model=new DefaultTableModel();
-            ArrayList<SanPham> listSP=new ArrayList<>();
-            ArrayList<HoaDon> listHD=new ArrayList<>();
-            ArrayList<ChiTietHoaDon> listCTHD=new ArrayList<>();
             SanPhamBUS spbus= new SanPhamBUS();
             listSP= spbus.timTheoma(maSP);
             for(SanPham sp: listSP){
                 tensp= sp.getTenSP();
             }
-            CTHoaDonBUS cthdbus= new CTHoaDonBUS();
-            listCTHD= cthdbus.timTheomasp(maSP);
             tblThongke.setModel(model);
-            String col[]={"STT","Mã HĐ","Mã SP","Tên SP","Ngày lập","Số lượng", "Thành tiền"};
-            model.setColumnIdentifiers(col);
-            for(ChiTietHoaDon cthd: listCTHD){
-                HoaDonBUS hdbus= new HoaDonBUS();
-                listHD= hdbus.timTheomahd(cthd.getMahd());
-                for(HoaDon hd: listHD){
-                    nglap= hd.getngaylap();
-                }
-                int thanhTien= cthd.getSoluong()*Integer.parseInt(cthd.getDongia());
-                String value[]={String.valueOf(stt),cthd.getMahd(),cthd.getMasp(),tensp,nglap,String.valueOf(cthd.getSoluong()),String.valueOf(thanhTien)};
+            String col[]={"STT","Mã HĐ","Tên SP","Số lượng","Tổng tiền"};
+            model.setColumnIdentifiers(col);          
+            for(int i = 0; i < mang.size(); i++){
+                CTHoaDonBUS cTHoaDonBUS= new CTHoaDonBUS();
+                listCTHD= cTHoaDonBUS.locTheomasp(mang.get(i), maSP);
+                if(listCTHD.size()>0){
+                    System.out.println(""+listCTHD.size());
+                    for(ChiTietHoaDon cthd: listCTHD){
+                        System.out.println("nhu");
+                        thanhtien= cthd.getSoluong()*Integer.parseInt(cthd.getDongia());
+                        sl= cthd.getSoluong();
+                        tongSluong += cthd.getSoluong();
+                        tongtien += thanhtien;
+                    }
+                String value[]={String.valueOf(stt),mang.get(i),tensp,String.valueOf(sl),String.valueOf(thanhtien)};
                 model.addRow(value);
                 stt++;
-                tongSluong += cthd.getSoluong();
-                tongtien += thanhTien;
+                }
             }
             lbSoluong.setText(String.valueOf(tongSluong));
             lbTong.setText(String.valueOf(tongtien));
@@ -532,9 +455,6 @@ public class THKE extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnKH;
-    private javax.swing.JButton btnNsx;
-    private javax.swing.JButton btnSP;
     private javax.swing.JButton btnTrove;
     private com.toedter.calendar.JDateChooser dcDen;
     private com.toedter.calendar.JDateChooser dcTu;
