@@ -100,7 +100,17 @@ public class SanPhamDAO extends MyConnect{
         getData(qry, dssp);
         return dssp;
     }
-    
+    public void updateSLSPKhiNhapHang(int slTon, int slNhap, String ma){
+        int slHientai= slTon+slNhap;
+        try {
+            getConnect();
+            String qry="Update SanPham set SoLuong= "+slHientai+" where MASP='"+ma+"'";
+            st=conn.createStatement();
+            st.executeUpdate(qry);
+            closeConnect();
+        } catch (Exception e) {
+        }
+    }
     public void getData(String qry, ArrayList dssp){   
         try {
             getConnect();

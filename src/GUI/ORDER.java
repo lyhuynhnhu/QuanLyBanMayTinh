@@ -405,97 +405,95 @@ public class ORDER extends javax.swing.JFrame {
         HoaDonBUS hdbus= new HoaDonBUS();
         CTHoaDonBUS cthdbus= new CTHoaDonBUS();
         HoaDon hd= new HoaDon();
-//        hd.mahd=...........
         KhachHangBUS khbus=new KhachHangBUS();
-          ArrayList<KhachHang> listkh = khbus.docDSKH();
-          KhachHang kh=new KhachHang();
+        ArrayList<KhachHang> listkh = khbus.docDSKH();
+        KhachHang kh=new KhachHang();
         int count=0;
         int dem=0;
-                    for(KhachHang KH:listkh){
-                        if(txtMaKH.getText().equals(KH.makh)) 
-                        {
-                            kh.makh=txtMaKH.getText();
-                            kh.tenkh=txtTenKH.getText();
-                            kh.diachi=txtDchi.getText();
-                            kh.dienthoai=txtDthoai.getText();
-                            kh.LoaiKH=KH.LoaiKH;
-                            kh.diem=(int)KH.diem+(Integer.parseInt(lbTongtien.getText())/1000000);
-                            khbus.sua(kh);
-                            break;}
-                        else dem++;
-          
-                    }
-                    if(dem==listkh.size()){
-        count=listkh.size();
-        KhachHang KH=listkh.get(count-1);
-        String chuoi3=KH.makh;
-        chuoi3=chuoi3.substring(2);
-        count=Integer.parseInt(chuoi3);
-        String chuoi1="";
-        if(count<10)
-        { chuoi1="KH00"+String.valueOf(count+1);
-            kh.makh=chuoi1;}
-        else if (count<99)
-        {
-            chuoi1="KH0"+String.valueOf(count+1);
-            kh.makh=chuoi1;
-        }        else if (count>=99)
-        {
-            chuoi1="KH"+String.valueOf(count+1);
-            kh.makh=chuoi1;
+        for(KhachHang KH:listkh){
+            if(txtMaKH.getText().equals(KH.makh)) 
+            {
+                kh.makh=txtMaKH.getText();
+                kh.tenkh=txtTenKH.getText();
+                kh.diachi=txtDchi.getText();
+                kh.dienthoai=txtDthoai.getText();
+                kh.LoaiKH=KH.LoaiKH;
+                kh.diem=(int)KH.diem+(Integer.parseInt(lbTongtien.getText())/1000000);
+                khbus.sua(kh);
+                break;
+            }
+            else dem++;
         }
-                    kh.tenkh=txtTenKH.getText();
-                    kh.diachi=txtDchi.getText();
-                    kh.dienthoai=txtDthoai.getText();
-                    kh.LoaiKH="KHThuong";
-                    kh.diem=Integer.parseInt(lbTongtien.getText())/1000000;
-                    khbus.them(kh);
-                    }
+        if(dem==listkh.size()){
+            count=listkh.size();
+            KhachHang KH=listkh.get(count-1);
+            String chuoi3=KH.makh;
+            chuoi3=chuoi3.substring(2);
+            count=Integer.parseInt(chuoi3);
+            String chuoi1="";
+            if(count<10){ 
+                chuoi1="KH00"+String.valueOf(count+1);
+                kh.makh=chuoi1;
+            }
+            else if (count<99)
+            {
+                chuoi1="KH0"+String.valueOf(count+1);
+                kh.makh=chuoi1;
+            } else if (count>=99)
+            {
+                chuoi1="KH"+String.valueOf(count+1);
+                kh.makh=chuoi1;
+            }
+            kh.tenkh=txtTenKH.getText();
+            kh.diachi=txtDchi.getText();
+            kh.dienthoai=txtDthoai.getText();
+            kh.LoaiKH="KHThuong";
+            kh.diem=Integer.parseInt(lbTongtien.getText())/1000000;
+            khbus.them(kh);
+        }
         {
-           
             ArrayList<HoaDon> listhd = hdbus.docDSHD();
-        count=0;
-        count=listhd.size();
-        HoaDon HD=listhd.get(count-1);
-        String chuoi3=HD.mahd;
-        chuoi3=chuoi3.substring(2);
-        count=Integer.parseInt(chuoi3);
-        String chuoi2="";
-        if(count<10)
-        { chuoi2="HD00"+String.valueOf(count+1);
-           hd.mahd=chuoi2;}
-        else if (count<99)
-        {
-            chuoi2="HD0"+String.valueOf(count+1);
-          hd.mahd=chuoi2;
-        }        else
-        {
-            chuoi2="HD"+String.valueOf(count+1);
-            hd.mahd=chuoi2;
-        }
-        
-        {
-        //hd.makh= txtMaKH.getText();
-            
-        hd.makm= txtKM.getText();
-        hd.manv= txtNvien.getText();
-        hd.ngaylap= txtNglap.getText();
-        hd.tongtien= lbTongtien.getText();
-        hd.makh=txtMaKH.getText();
-        hdbus.them(hd);
-        ChiTietHoaDon cthd= new ChiTietHoaDon();
-        for(int i=0; i<tblBanhang.getRowCount(); i++){
-//            cthd.mahd=........
-            cthd.mahd=hd.mahd;
-            cthd.masp= tblBanhang.getModel().getValueAt(i, 0).toString();
-            cthd.dongia= tblBanhang.getModel().getValueAt(i, 2).toString();
-            cthd.soluong= Integer.parseInt(tblBanhang.getModel().getValueAt(i, 3).toString());
-            cthdbus.them(cthd);
-        }
-       
-        JOptionPane.showMessageDialog(frame, "Đã lưu hóa đơn");
-            
-        }xuathoadon(chuoi2);
+            count=0;
+            count=listhd.size();
+            HoaDon HD=listhd.get(count-1);
+            String chuoi3=HD.mahd;
+            chuoi3=chuoi3.substring(2);
+            count=Integer.parseInt(chuoi3);
+            String chuoi2="";
+            if(count<10)
+            { chuoi2="HD00"+String.valueOf(count+1);
+               hd.mahd=chuoi2;}
+            else if (count<99)
+            {
+                chuoi2="HD0"+String.valueOf(count+1);
+              hd.mahd=chuoi2;
+            }        else
+            {
+                chuoi2="HD"+String.valueOf(count+1);
+                hd.mahd=chuoi2;
+            }
+
+            {
+            //hd.makh= txtMaKH.getText();
+
+            hd.makm= txtKM.getText();
+            hd.manv= txtNvien.getText();
+            hd.ngaylap= txtNglap.getText();
+            hd.tongtien= lbTongtien.getText();
+            hd.makh=txtMaKH.getText();
+            hdbus.them(hd);
+            ChiTietHoaDon cthd= new ChiTietHoaDon();
+            for(int i=0; i<tblBanhang.getRowCount(); i++){
+                cthd.mahd=hd.mahd;
+                cthd.masp= tblBanhang.getModel().getValueAt(i, 0).toString();
+                cthd.dongia= tblBanhang.getModel().getValueAt(i, 2).toString();
+                cthd.soluong= Integer.parseInt(tblBanhang.getModel().getValueAt(i, 3).toString());
+                cthdbus.them(cthd);
+            }
+
+            JOptionPane.showMessageDialog(frame, "Đã lưu hóa đơn");
+
+            }xuathoadon(chuoi2);
         }
         /*txtsl.addKeyListener(new KeyAdapter() {
          public void keyPressed(KeyEvent e) {

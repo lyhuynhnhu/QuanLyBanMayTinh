@@ -315,7 +315,7 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBanHangMouseClicked
 
     private void btnNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhapHangMouseClicked
-        NhanHang nhanHang= new NhanHang();
+        RECEIPT nhanHang= new RECEIPT(ma, quyen);
         nhanHang.setVisible(true);
     }//GEN-LAST:event_btnNhapHangMouseClicked
 

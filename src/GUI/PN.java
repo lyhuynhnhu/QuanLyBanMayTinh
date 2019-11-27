@@ -319,7 +319,7 @@ public class PN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXemMouseClicked
 
     private void btnThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMouseClicked
-        NhanHang nhanHang= new NhanHang();
+        RECEIPT nhanHang= new RECEIPT();
         nhanHang.setVisible(true);
     }//GEN-LAST:event_btnThemMouseClicked
 

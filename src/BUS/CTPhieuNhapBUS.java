@@ -23,7 +23,7 @@ public class CTPhieuNhapBUS {
     public void them(ChiTietPhieuNhap ctpndto){
         CTPhieuNhapDAO data= new CTPhieuNhapDAO();
         data.them(ctpndto);
-        dsctpn.add(ctpndto);
+        //dsctpn.add(ctpndto);
     }
     public void xoa(String x){
         CTPhieuNhapDAO data= new CTPhieuNhapDAO();

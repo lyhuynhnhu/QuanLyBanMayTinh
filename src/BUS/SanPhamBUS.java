@@ -2,11 +2,7 @@ package BUS;
 
 import DAO.SanPhamDAO;
 import DTO.SanPham;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import javax.swing.JOptionPane;
 
 public class SanPhamBUS {
     public static ArrayList<SanPham> dssp;
@@ -58,5 +54,9 @@ public class SanPhamBUS {
         SanPhamDAO data= new SanPhamDAO();
         dssp=data.timTheogia(giatu,giaden);
         return dssp;
+    }
+    public void updateSLSPKhiNhapHang(int slTon, int slNhap, String ma){
+        SanPhamDAO data= new SanPhamDAO();
+        data.updateSLSPKhiNhapHang(slTon, slNhap, ma);
     }
 }
