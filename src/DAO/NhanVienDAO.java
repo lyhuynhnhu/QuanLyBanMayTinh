@@ -10,7 +10,7 @@ public class NhanVienDAO extends MyConnect
 {
     public ArrayList docDSNV(){
         ArrayList dsnv= new ArrayList<NhanVien>();
-        String qry="select * from NhanVien";
+        String qry="SELECT * FROM nhanvien INNER JOIN phanquyen ON nhanvien.MaNV=phanquyen.MaNV";
         getData(qry, dsnv);
         return dsnv;
     }
@@ -103,6 +103,8 @@ public class NhanVienDAO extends MyConnect
                 nv.NgaySinh=rs.getString(6);
                 nv.ChucVu=rs.getString(7);
                 nv.Luong=rs.getInt(8);
+                nv.TenTK=rs.getString(10);
+                nv.MatKhau=rs.getString(11);
                 dsnv.add(nv);
             }
             closeConnect();

@@ -10,11 +10,13 @@ public class NhanVien {
     public String NgaySinh;
     public String ChucVu;
     public int Luong;
+    public String TenTK;
+    public String MatKhau;
     
     public NhanVien(){
         
     }
-    public NhanVien(String MaNV, String Ten,String GioiTinh, String Dthoai, String NgaySinh, String DiaChi, String ChucVu, int Luong)
+    public NhanVien(String MaNV, String Ten,String GioiTinh, String Dthoai, String NgaySinh, String DiaChi, String ChucVu, int Luong, String TenTK, String MatKhau)
     {
         this.MaNV = MaNV;
         this.Ten = Ten;
@@ -24,6 +26,8 @@ public class NhanVien {
         this.Dthoai = Dthoai;
         this.ChucVu = ChucVu;
         this.Luong = Luong ;
+        this.TenTK = TenTK;
+        this.MatKhau = MatKhau;
     }
     
     public String getMaNV() {
@@ -40,6 +44,22 @@ public class NhanVien {
     public void setTen(String Ten)
     {
         this.Ten=Ten;
+    }
+
+    public String getTenTK() {
+        return TenTK;
+    }
+
+    public void setTenTK(String TenTK) {
+        this.TenTK = TenTK;
+    }
+
+    public String getMatKhau() {
+        return MatKhau;
+    }
+
+    public void setMatKhau(String MatKhau) {
+        this.MatKhau = MatKhau;
     }
     
     public String getGioiTinh()
