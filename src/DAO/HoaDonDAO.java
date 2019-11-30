@@ -9,14 +9,14 @@ import java.util.logging.Logger;
 public class HoaDonDAO extends MyConnect{
     public ArrayList docDSHD(){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon";
+        String qry="select * from hoadon";
         getData(qry, dshd);
         return dshd;
     }
     public void them(HoaDon hd){
         try {
             getConnect();
-            String qry="Insert into HoaDon values(";
+            String qry="Insert into hoadon values(";
             qry+= "'"+hd.mahd+"'";
             qry+= ","+"'"+hd.makh+"'";
             qry+= ","+"'"+hd.manv+"'";           
@@ -40,7 +40,7 @@ public class HoaDonDAO extends MyConnect{
     public void xoa(String ma){
         try {
             getConnect();
-            String qry="Delete from HoaDon where MaHD='"+ma+"'";
+            String qry="Delete from hoadon where MaHD='"+ma+"'";
             st=conn.createStatement();
             st.executeUpdate(qry);
             closeConnect();
@@ -49,31 +49,31 @@ public class HoaDonDAO extends MyConnect{
     }
     public ArrayList<HoaDon> timTheongay(String tu, String den){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
+        String qry="select * from hoadon where NgayLap>='"+tu+"' and NgayLap<='"+den+"'";
         getData(qry, dshd);
         return dshd;
     }
     public ArrayList<HoaDon> timTheoMaHD(String ma){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon where MaHD like '%"+ma+"%'";
+        String qry="select * from hoadon where MaHD like '%"+ma+"%'";
         getData(qry, dshd);
         return dshd;
     }
     public ArrayList<HoaDon> timTheoMaKH(String ma){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon where MaKH like '%"+ma+"%'";
+        String qry="select * from hoadon where MaKH like '%"+ma+"%'";
         getData(qry, dshd);
         return dshd;
     }
     public ArrayList<HoaDon> timTheoMaNV(String ma){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon where MaNV like '%"+ma+"%'";
+        String qry="select * from hoadon where MaNV like '%"+ma+"%'";
         getData(qry, dshd);
         return dshd;
     }
     public ArrayList<HoaDon> timTheoMaKM(String ma){
         ArrayList dshd= new ArrayList<HoaDon>();
-        String qry="select * from HoaDon where MaKM like '%"+ma+"%'";
+        String qry="select * from hoadon where MaKM like '%"+ma+"%'";
         getData(qry, dshd);
         return dshd;
     }

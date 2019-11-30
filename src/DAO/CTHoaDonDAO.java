@@ -31,6 +31,12 @@ public class CTHoaDonDAO extends MyConnect{
         getData(qry, dscthd);
         return dscthd;
     }
+    public ArrayList<ChiTietHoaDon> timTheoMaKH(String kh){
+        ArrayList dscthd= new ArrayList<ChiTietHoaDon>();
+        String qry= "select * from ChiTietHoaDon where MaKH like '%"+kh+"%'";
+        getData(qry, dscthd);
+        return dscthd;
+    }
     public void them(ChiTietHoaDon cthd){
         try {
             getConnect();

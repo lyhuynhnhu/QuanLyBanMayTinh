@@ -30,6 +30,11 @@ public class CTHoaDonBUS {
         dscthd= data.timTheoMaSP(ma);
         return dscthd;
     }
+     public ArrayList<ChiTietHoaDon> timTheomakh(String ma){
+        CTHoaDonDAO data= new CTHoaDonDAO();
+        dscthd= data.timTheoMaSP(ma);
+        return dscthd;
+    }
     public void them(ChiTietHoaDon cthddto){
         CTHoaDonDAO data= new CTHoaDonDAO();
         data.them(cthddto);
