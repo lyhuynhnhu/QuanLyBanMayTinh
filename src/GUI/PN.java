@@ -20,12 +20,17 @@ public class PN extends javax.swing.JFrame {
     private ArrayList<PhieuNhap> listPN=new ArrayList<>();
     private ArrayList<ChiTietPhieuNhap> listCTPN=new ArrayList<>();
     private JFrame frame;
-    
+    String ma="", quyen="";
     public PN() {
         initComponents();
         loadtblPN();
     }
-
+    public PN(String ma, String quyen) {
+        initComponents();
+        loadtblPN();
+        this.ma= ma;
+        this.quyen= quyen;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,7 +53,6 @@ public class PN extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnXemCT = new javax.swing.JButton();
         btnTim = new javax.swing.JButton();
-        btnXoa = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
         btnXem = new javax.swing.JButton();
         btnTaomoi = new javax.swing.JButton();
@@ -160,16 +164,6 @@ public class PN extends javax.swing.JFrame {
             }
         });
 
-        btnXoa.setBackground(new java.awt.Color(255, 255, 255));
-        btnXoa.setForeground(new java.awt.Color(255, 51, 51));
-        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
-        btnXoa.setText("XÓA");
-        btnXoa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnXoaMouseClicked(evt);
-            }
-        });
-
         btnThem.setBackground(new java.awt.Color(255, 255, 255));
         btnThem.setForeground(new java.awt.Color(102, 204, 255));
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/them.png"))); // NOI18N
@@ -207,8 +201,8 @@ public class PN extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,20 +221,21 @@ public class PN extends javax.swing.JFrame {
                                     .addComponent(txtMapn)
                                     .addComponent(dcNglap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(31, 31, 31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTrove)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnXemCT, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnXem, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnTim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnTaomoi, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,11 +276,9 @@ public class PN extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnXemCT, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(20, 20, 20)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnXem, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                             .addComponent(btnTaomoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -319,35 +312,9 @@ public class PN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXemMouseClicked
 
     private void btnThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMouseClicked
-        RECEIPT nhanHang= new RECEIPT();
+        RECEIPT nhanHang= new RECEIPT(ma, quyen);
         nhanHang.setVisible(true);
     }//GEN-LAST:event_btnThemMouseClicked
-
-    private void btnXoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMouseClicked
-        int i=tblPN.getSelectedRow();
-        String Ma=tblPN.getModel().getValueAt(i, 0).toString();
-        PhieuNhapBUS phieuNhapBUS= new PhieuNhapBUS();
-        CTPhieuNhapBUS cTPhieuNhapBUS= new CTPhieuNhapBUS();
-        int ret = JOptionPane.showOptionDialog(this,"Bạn chắc chắn muốn xóa phiếu nhập hàng này", "Confirm"
-                ,JOptionPane.YES_NO_OPTION
-                ,JOptionPane.QUESTION_MESSAGE, null
-                ,new String[] {"OK","Bỏ chọn"}, "OK");
-        if(ret == JOptionPane.YES_OPTION) {
-            if(i>=0){
-                phieuNhapBUS.xoa(Ma);
-                cTPhieuNhapBUS.xoa(Ma);
-                modelPN.removeRow(i);
-                tblPN.setModel(modelPN);
-                //-----xóa tất cả các dòng trong tblCTPN----------
-                JOptionPane.showMessageDialog(frame, "Xóa thành công!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/thanhcong.png")));
-            }else{
-                JOptionPane.showMessageDialog(null, "Bạn chưa chọn phiếu nhập hàng muốn xóa!");
-            }
-        }else {
-            //trường hợp chon cancel
-            JOptionPane.showMessageDialog(frame, "Bạn đã bỏ lựa chọn vừa rồi. Xóa thất bại!", "Lời nhắn", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/message.jpg")));
-        }
-    }//GEN-LAST:event_btnXoaMouseClicked
 
     private void btnTimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTimMouseClicked
         String Mapn= txtMapn.getText();
@@ -498,7 +465,6 @@ public class PN extends javax.swing.JFrame {
     private javax.swing.JButton btnTrove;
     private javax.swing.JButton btnXem;
     private javax.swing.JButton btnXemCT;
-    private javax.swing.JButton btnXoa;
     private com.toedter.calendar.JDateChooser dcNglap;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -508,10 +474,10 @@ public class PN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblCTPN;
-    private javax.swing.JTable tblPN;
+    public static javax.swing.JTable tblPN;
     private javax.swing.JTextField txtMansx;
     private javax.swing.JTextField txtManv;
     private javax.swing.JTextField txtMapn;

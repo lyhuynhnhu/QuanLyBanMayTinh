@@ -29,9 +29,7 @@ public class MAIN extends javax.swing.JFrame {
         btnKM = new javax.swing.JButton();
         btnSP = new javax.swing.JButton();
         btnKH = new javax.swing.JButton();
-        btnPBH = new javax.swing.JButton();
         btnBanHang = new javax.swing.JButton();
-        btnNhapHang = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,30 +126,12 @@ public class MAIN extends javax.swing.JFrame {
             }
         });
 
-        btnPBH.setBackground(new java.awt.Color(255, 255, 255));
-        btnPBH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/baohanh.png"))); // NOI18N
-        btnPBH.setText("QUẢN LÍ PHIẾU BẢO HÀNH");
-        btnPBH.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnPBHMouseClicked(evt);
-            }
-        });
-
         btnBanHang.setBackground(new java.awt.Color(255, 255, 255));
         btnBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/banhang.jpg"))); // NOI18N
         btnBanHang.setText("BÁN HÀNG");
         btnBanHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBanHangMouseClicked(evt);
-            }
-        });
-
-        btnNhapHang.setBackground(new java.awt.Color(255, 255, 255));
-        btnNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhaphang.png"))); // NOI18N
-        btnNhapHang.setText("NHẬP HÀNG");
-        btnNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnNhapHangMouseClicked(evt);
             }
         });
 
@@ -169,12 +149,6 @@ public class MAIN extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(btnNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +170,8 @@ public class MAIN extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnKM, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPBH, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnThongke, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnThongke, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,15 +180,11 @@ public class MAIN extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnThoat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSP, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPBH, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKH, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnKH, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPN, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +195,7 @@ public class MAIN extends javax.swing.JFrame {
                     .addComponent(btnNV, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNSX, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThongke, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,7 +206,7 @@ public class MAIN extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -260,16 +230,9 @@ public class MAIN extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnKHMouseClicked
 
-    private void btnPBHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPBHMouseClicked
-        if("QL".equals(quyen)){
-            WARRANTYCARD warrantycard= new WARRANTYCARD();
-            warrantycard.setVisible(true);
-        } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý");        
-    }//GEN-LAST:event_btnPBHMouseClicked
-
     private void btnPNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPNMouseClicked
         if("QL".equals(quyen)){
-            PN pn= new PN();
+            PN pn= new PN(ma, quyen);
             pn.setVisible(true);
         } else JOptionPane.showMessageDialog(frame, "Bạn không có quyền quản lý"); 
     }//GEN-LAST:event_btnPNMouseClicked
@@ -313,11 +276,6 @@ public class MAIN extends javax.swing.JFrame {
         ORDER order= new ORDER(ma, quyen);
         order.setVisible(true);
     }//GEN-LAST:event_btnBanHangMouseClicked
-
-    private void btnNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhapHangMouseClicked
-        RECEIPT nhanHang= new RECEIPT(ma, quyen);
-        nhanHang.setVisible(true);
-    }//GEN-LAST:event_btnNhapHangMouseClicked
 
     private void btnThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMouseClicked
         this.setVisible(false);
@@ -364,8 +322,6 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JButton btnKM;
     private javax.swing.JButton btnNSX;
     private javax.swing.JButton btnNV;
-    private javax.swing.JButton btnNhapHang;
-    private javax.swing.JButton btnPBH;
     private javax.swing.JButton btnPN;
     private javax.swing.JButton btnSP;
     private javax.swing.JButton btnThoat;
