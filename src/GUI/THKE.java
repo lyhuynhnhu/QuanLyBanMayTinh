@@ -8,12 +8,15 @@ import DTO.ChiTietHoaDon;
 import DTO.HoaDon;
 import DTO.KhachHang;
 import DTO.SanPham;
-import DTO.Thongke;
+import DAO.Thongke;
 import com.sun.glass.events.KeyEvent;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class THKE extends javax.swing.JFrame {
@@ -50,6 +53,7 @@ public class THKE extends javax.swing.JFrame {
         btnTrove = new javax.swing.JButton();
         lbSoluong = new javax.swing.JLabel();
         lbTong = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,6 +197,13 @@ public class THKE extends javax.swing.JFrame {
         lbTong.setBackground(new java.awt.Color(255, 255, 255));
         lbTong.setText("0");
 
+        jButton1.setText("Xuất file");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -216,7 +227,8 @@ public class THKE extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbTong, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 131, 131)))))
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -234,7 +246,8 @@ public class THKE extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbSoluong)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTong))
+                    .addComponent(lbTong)
+                    .addComponent(jButton1))
                 .addGap(31, 31, 31))
         );
 
@@ -264,6 +277,7 @@ public class THKE extends javax.swing.JFrame {
      //ArrayList<SanPham> listSP=new ArrayList<>();
     ArrayList<Thongke> tk=new ArrayList<Thongke>();
     int co=0;
+    int tongSluong=0, tongtien=0;
      public ArrayList<HoaDon> laydstk(ArrayList<HoaDon> a, ArrayList<HoaDon> b, ArrayList<HoaDon> c)
      {
          //if(co==0){
@@ -348,7 +362,7 @@ public class THKE extends javax.swing.JFrame {
         DefaultTableModel model=new DefaultTableModel();
             
             ArrayList<ChiTietHoaDon> listCTHD=new ArrayList<>();
-            int stt=1, tongSluong=0, tongtien=0;
+            int stt=1; tongSluong=0; tongtien=0;
             String msp="",tensp="", makh="",tenkh="";
             String tu= dateFormat.format(dcTu.getDate());
             String den= dateFormat.format(dcDen.getDate());
@@ -435,10 +449,20 @@ public class THKE extends javax.swing.JFrame {
         thkeKH();
     }//GEN-LAST:event_txtKHKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            Thongke.run(HDtk,String.valueOf(dcTu.getDate()),String.valueOf(dcDen.getDate()),txtSP.getText(),txtKH.getText(),tongSluong, tongtien);
+        } catch (IOException ex) {
+            Logger.getLogger(THKE.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void thkeKH(){
         try {
             
-            int stt=1, tongSluong=0, tongtien=0;
+            int stt=1; tongSluong=0; tongtien=0;
             String maKH= txtKH.getText(); String tenKH="",masp="",tensp="";
             DefaultTableModel model=new DefaultTableModel();
             
@@ -496,7 +520,7 @@ public class THKE extends javax.swing.JFrame {
     public void thkeSP(){
         
         try {
-            int stt=1, tongSluong=0, tongtien=0; 
+            int stt=1; tongSluong=0; tongtien=0; 
             String maSP= txtSP.getText(); String tensp="",nglap="",mkh="",tenkh="";
             DefaultTableModel model=new DefaultTableModel();
             SanPhamBUS spbus= new SanPhamBUS();
@@ -592,6 +616,7 @@ public class THKE extends javax.swing.JFrame {
     private javax.swing.JButton btnTrove;
     private com.toedter.calendar.JDateChooser dcDen;
     private com.toedter.calendar.JDateChooser dcTu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
